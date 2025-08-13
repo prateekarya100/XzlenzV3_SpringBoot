@@ -1,4 +1,4 @@
-package com.cybercube.xzlenzv3.dao;
+package com.cybercube.xzlenzv3.repository;
 
 import java.util.Collection;
 import java.util.List;
