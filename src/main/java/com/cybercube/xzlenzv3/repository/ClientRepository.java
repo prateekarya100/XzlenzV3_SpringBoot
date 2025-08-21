@@ -8,7 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.cybercube.xzlenzv3.model.Client.Client;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 
     Optional<Client> findByEmailIgnoreCase(String email);
@@ -22,4 +24,6 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 
     @Query("select count(u) from User u where u.client.id = :clientId")
     long countUsersByClientId(Integer clientId);
+
+    Client findByCompanyName(String companyName);
 }

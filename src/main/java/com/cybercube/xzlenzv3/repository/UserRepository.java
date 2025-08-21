@@ -31,4 +31,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // By role/profile type (e.g., "ADMIN", "CLIENT_USER", etc.)
     List<User> findByUserProfiles_TypeIgnoreCase(String type);
     Page<User> findByUserProfiles_TypeIgnoreCase(String type, Pageable pageable);
+
+    List<User> findByClientId(Integer clientId);
 }

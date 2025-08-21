@@ -15,4 +15,11 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Intege
 
     // Useful for seeding or fetching multiple roles
     List<UserProfile> findByTypeIn(Collection<String> types);
+
+//    UserProfile findByType(String userProfileType);
+
+//    UserProfile findByRoleName(String roleName);
+
+    Optional<UserProfile> findByType(String type);
+
 }

@@ -2,17 +2,22 @@ package com.cybercube.xzlenzv3.model.User;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name="user_profile")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class UserProfile implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -21,7 +26,9 @@ public class UserProfile implements Serializable{
 
 	@Column(name="TYPE", length=20, unique=true, nullable=false)
 	private String type = UserProfileType.CLIENT_USER.getUserProfileType();
-	
+
+
+
 
 	@Override
 	public int hashCode() {

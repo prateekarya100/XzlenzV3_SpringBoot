@@ -1,0 +1,47 @@
+  spring:
+
+    application:
+      name: xzlenzv3
+    datasource:
+      url: "jdbc:mysql://localhost:3306/xzlenz?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+      username: "root"
+      password: "root"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    profiles:
+      active: local
+    jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQLDialect
+    servlet:
+      multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
+
+    security:
+      user:
+        name: superadmin
+        password: super123
+        roles:
+          - SUPER_ADMIN
+
+  server:
+    #address: 0.0.0.0
+    port: 9006
+  #  servlet:
+  #    context-path: /xzlenzv3
+    tomcat:
+      max-swallow-size: 100MB
+
+  #upload:
+  #  dir: xzlenzv3
+  #
+  #jwt:
+  #  secret: xzlenz_secret_key
+
+  #logging:
+  #  level:
+  #    root: DEBUG
+  #    org.springframework.security: DEBUG
