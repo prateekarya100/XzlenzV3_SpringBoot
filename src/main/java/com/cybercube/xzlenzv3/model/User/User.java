@@ -25,8 +25,8 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
+@Builder
 @Data
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -35,7 +35,6 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
 public class User implements Serializable{
 
 
@@ -113,9 +112,14 @@ public class User implements Serializable{
 	@JoinTable(name = "user_user_profile",
              joinColumns = { @JoinColumn(name = "USER_ID") },
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
+	@Builder.Default
 	private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
 
+	public boolean hasRole(String role) {
+		return this.getUserProfiles().stream()
+				.anyMatch(profile -> profile.getType().equalsIgnoreCase(role));
+	}
 
 
 }

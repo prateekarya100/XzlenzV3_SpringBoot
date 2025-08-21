@@ -23,8 +23,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/clients/**").hasRole("SUPER")
-                        .requestMatchers("/api/users/**").hasAnyRole("SUPER", "CLIENT_ADMIN")
+                        .requestMatchers("/api/clients/**").hasAnyRole("SUPER_ADMIN", "CLIENT_ADMIN")
+                        .requestMatchers("/api/users/**").hasAnyRole("SUPER_ADMIN", "CLIENT_ADMIN")
                         .requestMatchers("/api/profile/**").hasAnyRole("CLIENT_USER", "CLIENT_ADMIN")
                         .anyRequest().authenticated()
                 )

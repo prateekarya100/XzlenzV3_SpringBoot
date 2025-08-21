@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.cybercube.xzlenzv3.model.Client.dto.ClientResponse;
 import org.hibernate.validator.constraints.URL;
 
 import com.cybercube.xzlenzv3.model.CCFPoints.CCFPoint;
@@ -37,7 +38,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-	public class Client implements Serializable {
+	public class Client extends ClientResponse implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

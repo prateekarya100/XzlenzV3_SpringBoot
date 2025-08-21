@@ -1,12 +1,25 @@
 
-# SUPER RESPONSIBILITIES
---------------------------
-    1> CREATE CLIENT(COMPANY) AND CLIENT_ADMIN (USER) --> [COMPLETED]
+# SUPER USER CREATED  --> [COMPLETED]
+        WITH
+            USERNAME: super001
+            PASSWORD: Super@123
+---------------------------------------------------------------------
+    USER STORY --> SUPER_ADMIN USER WITH THEIR USERNAME AND PASSWORD CREATE
+                   NEW CLIENT(COMPANY) WITH NEW CLIENT_ADMIN
+                   ASSOCIATED WITH CLIENT AUTOMATICALLY
+    -----------------------------------------------------------------
+    1> CREATE CLIENT(COMPANY) with CLIENT_ADMIN (USER) --> [COMPLETED]
 
 # CLIENT_ADMIN-> RESPONSIBILITIES
----------------------------------
+--------------------------------------------------------------------------------------------
     1> IT CREATE OTHER USERS IN A COMPANY --> [COMPLETED]
-    2> (ON AUTHORITY BASES) METHODS ALLOWED TO CLIENT_ADMIN -> UPDATE/DELETE/(FETCH/GET)/PUT
+    2> (ON AUTHORITY BASES) METHODS ALLOWED TO CLIENT_ADMIN  --> [COMPLETED]
+                        -> UPDATE/DELETE/(FETCH/GET)/PUT
+            Endpoint	            UserRoles	    Username	    Password	Allowed Client IDs
+            GET /api/clients/{id}	SUPER_ADMIN	    super001	    Super@123	Any
+            GET /api/clients/{id}	CLIENT_ADMIN	admin_1	        Admin@123	Only 1
+            GET /api/clients/{id}	CLIENT_ADMIN	admin_2	        Admin@123	Only 2
+    -----------------------------------------------------------------------------------------
     3> PROFILE PICTURE UPLOAD FOR ALL USERS + CLIENT_LOGO + SELF PROFILE PICTURE UPLOAD
     4> CLIENT_COMPANY CREATED BY SUPER, DETAIL TO BE UPDATED [ UPDATE/DELETE/PUT/GET ]
     5> STATUS TO BE CHANGES FOR ALL TYPES USERS [ active|inactive|deleted ] --> [COMPLETED]

@@ -1,8 +1,11 @@
 package com.cybercube.xzlenzv3.repository;
 
+
 import java.util.List;
 import java.util.Optional;
 
+import com.cybercube.xzlenzv3.model.Client.Client;
+import com.cybercube.xzlenzv3.model.Client.dto.ClientResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,4 +36,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Page<User> findByUserProfiles_TypeIgnoreCase(String type, Pageable pageable);
 
     List<User> findByClientId(Integer clientId);
+
+    Optional<User> findFirstByClientAndDesignation(Client client, String designation);
 }
