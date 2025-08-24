@@ -5,16 +5,23 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cybercube.xzlenzv3.model.Client.Client;
+<<<<<<< HEAD
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+=======
+import com.cybercube.xzlenzv3.model.Client.dto.ClientResponse;
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.cybercube.xzlenzv3.model.User.User;
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
@@ -42,6 +49,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByClientId(Integer clientId);
 
     Optional<User> findFirstByClientAndDesignation(Client client, String designation);
+<<<<<<< HEAD
 
     @Query("SELECT u FROM User u JOIN FETCH u.client WHERE u.client = :client")
     List<User> findByClientWithClient(@Param("client") Client client);
@@ -60,4 +68,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
   Optional<User> findByIdAndClient(Long userId, Client client);
 
     void deleteAllByClientId(Long clientId);
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 }

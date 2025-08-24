@@ -2,15 +2,22 @@ package com.cybercube.xzlenzv3.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
 import org.springframework.web.bind.MethodArgumentNotValidException;
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+=======
+import java.util.Map;
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -44,6 +51,7 @@ public class GlobalExceptionHandler {
         error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+<<<<<<< HEAD
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ValidationErrorResponse> handleValidationExceptions(
@@ -74,4 +82,6 @@ public class GlobalExceptionHandler {
             this.errors = errors;
         }
     }
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 }

@@ -14,8 +14,14 @@ public enum UserProfileType implements Serializable{
 	CLIENT_AUDITOR_READ_ONLY("CLIENT_AUDITOR_READ_ONLY"),
 
 
+<<<<<<< HEAD
 	SUPER("SUPER_ADMIN"),
 	SUPER_USER("SUPER_USER");
+=======
+	SUPER("SUPER"),
+	SUPER_USER("SUPER_USER")
+	;
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 
 	String userProfileType;
 

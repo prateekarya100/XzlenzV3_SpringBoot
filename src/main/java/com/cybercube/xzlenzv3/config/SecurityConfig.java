@@ -23,21 +23,32 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
+<<<<<<< HEAD
                         .requestMatchers("/api/super-admin/create").permitAll()
                         .requestMatchers("/api/clients/**").hasAnyRole("SUPER_ADMIN", "CLIENT_ADMIN")
                         .requestMatchers("/api/client/**").hasRole("SUPER_ADMIN")
                         .requestMatchers("/api/client/**").hasAnyRole("SUPER_ADMIN", "CLIENT_ADMIN")
                         .requestMatchers("/api/client/users/**").hasAnyRole("CLIENT_ADMIN", "CLIENT_USER")
+=======
+                        .requestMatchers("/api/clients/**").hasAnyRole("SUPER_ADMIN", "CLIENT_ADMIN")
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
                         .requestMatchers("/api/users/**").hasAnyRole("SUPER_ADMIN", "CLIENT_ADMIN")
                         .requestMatchers("/api/profile/**").hasAnyRole("CLIENT_USER", "CLIENT_ADMIN")
                         .anyRequest().authenticated()
                 )
+<<<<<<< HEAD
                 .httpBasic();
+=======
+                .httpBasic(); // Basic Auth for now
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 
         return http.build();
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)

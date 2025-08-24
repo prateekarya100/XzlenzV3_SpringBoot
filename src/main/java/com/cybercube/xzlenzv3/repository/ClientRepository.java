@@ -25,5 +25,9 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
     @Query("select count(u) from User u where u.client.id = :clientId")
     long countUsersByClientId(Integer clientId);
 
+<<<<<<< HEAD
     Optional<Client> findByCompanyName(String companyName);
+=======
+    Client findByCompanyName(String companyName);
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 }

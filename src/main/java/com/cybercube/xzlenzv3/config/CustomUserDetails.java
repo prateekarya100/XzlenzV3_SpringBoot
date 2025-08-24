@@ -15,11 +15,14 @@ public class CustomUserDetails implements UserDetails {
         this.user = user;
     }
 
+<<<<<<< HEAD
     // ✅ Add this getter for controller use
     public User getUser() {
         return this.user;
     }
 
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return user.getUserProfiles().stream()
@@ -32,5 +35,10 @@ public class CustomUserDetails implements UserDetails {
     @Override public boolean isAccountNonExpired() { return true; }
     @Override public boolean isAccountNonLocked() { return true; }
     @Override public boolean isCredentialsNonExpired() { return true; }
+<<<<<<< HEAD
     @Override public boolean isEnabled() { return user.getProfileStatus().equals("active"); }
+=======
+    @Override public boolean isEnabled() { return user.getProfileStatus().equals("active");
+    }
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 }

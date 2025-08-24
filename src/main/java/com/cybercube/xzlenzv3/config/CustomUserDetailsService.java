@@ -8,8 +8,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import java.util.Optional;
 
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -18,6 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
+<<<<<<< HEAD
         Optional<User> userOpt = userRepo.findBySsoId(ssoId);
 
         System.out.println("Searching for user with email: " + ssoId);
@@ -32,4 +36,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new CustomUserDetails(user);
     }
 
+=======
+        User user = userRepo.findBySsoId(ssoId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new CustomUserDetails(user);
+    }
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 }

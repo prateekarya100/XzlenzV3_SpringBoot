@@ -99,6 +99,19 @@ public class User implements Serializable{
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+<<<<<<< HEAD
+=======
+
+
+ // make the association optional + nullable at the column
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(
+        name = "client_id",
+        nullable = true,
+        foreignKey = @ForeignKey(name = "fk_client_user_client")
+    )
+    private Client client; // can be null
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 
 
  // make the association optional + nullable at the column
@@ -112,14 +125,25 @@ public class User implements Serializable{
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_user_profile",
+<<<<<<< HEAD
 			joinColumns = { @JoinColumn(name = "USER_ID") },
 			inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
 	@JsonIgnore
+=======
+             joinColumns = { @JoinColumn(name = "USER_ID") },
+             inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 	@Builder.Default
 	private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
 
+	public boolean hasRole(String role) {
+		return this.getUserProfiles().stream()
+				.anyMatch(profile -> profile.getType().equalsIgnoreCase(role));
+	}
 
+
+<<<<<<< HEAD
 	public boolean hasRole(String role) {
 		System.out.println("Checking role: " + role);
 		this.getUserProfiles().forEach(p -> System.out.println("User has profile: " + p.getType()));
@@ -129,4 +153,6 @@ public class User implements Serializable{
 
 
 
+=======
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 }

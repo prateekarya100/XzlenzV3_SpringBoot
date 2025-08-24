@@ -25,6 +25,7 @@ public class Xzlenzv3Application {
 		SpringApplication.run(Xzlenzv3Application.class, args);
 	}
 
+<<<<<<< HEAD
 //	@Bean
 //	public CommandLineRunner initSuperUser(UserRepository userRepo,
 //										   UserProfileRepository profileRepo,
@@ -65,6 +66,46 @@ public class Xzlenzv3Application {
 //			}
 //		};
 //	}
+=======
+	@Bean
+	public CommandLineRunner initSuperUser(UserRepository userRepo,
+										   UserProfileRepository profileRepo,
+										   PasswordEncoder passwordEncoder) {
+		return args -> {
+			String ssoId = "super001";
+			String rawPassword = "Super@123";
+
+			UserProfile superProfile = profileRepo.findByType(UserProfileType.SUPER.getUserProfileType())
+					.orElseGet(() -> {
+						UserProfile newProfile = UserProfile.builder()
+								.type(UserProfileType.SUPER.getUserProfileType())
+								.build();
+						return profileRepo.save(newProfile);
+					});
+
+			if (userRepo.findBySsoId(ssoId).isEmpty()) {
+				User superUser = User.builder()
+						.ssoId(ssoId)
+						.password(passwordEncoder.encode(rawPassword))
+						.firstName("Super")
+						.lastName("Admin")
+						.email("super@admin.com")
+						.designation("SUPER")
+						.contactNumber("+911234567890")
+						.profileStatus("active")
+						.createdAt(java.time.LocalDateTime.now())
+						.build();
+
+				superUser.getUserProfiles().add(superProfile);
+
+				userRepo.save(superUser);
+				System.out.println("✅ SUPER user created with profile mapping: " + ssoId);
+			} else {
+				System.out.println("ℹ️ SUPER user already exists: " + ssoId);
+			}
+		};
+	}
+>>>>>>> eefcff17c2301b814b811c6e70abcafa77d77b84
 
 
 }
