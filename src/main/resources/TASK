@@ -1,0 +1,59 @@
+
+#   SUPER USER CREATED  --> [COMPLETED]
+            WITH
+            USERNAME: super001
+            PASSWORD: Super@123
+    --------------------------------------------------------------------------------------------
+    USER STORY --> SUPER_ADMIN USER WITH THEIR USERNAME AND PASSWORD CREATE
+                   NEW CLIENT(COMPANY) WITH NEW CLIENT_ADMIN
+                   ASSOCIATED WITH CLIENT AUTOMATICALLY
+
+    1> CREATE CLIENT(COMPANY) with CLIENT_ADMIN (USER) --> [COMPLETED]
+    --------------------------------------------------------------------------------------------
+
+#   CLIENT_ADMIN-> RESPONSIBILITIES
+    --------------------------------------------------------------------------------------------
+    1> CLIENT_ADMIN CAN CREATE OTHER USERS IN A COMPANY WITH CLIENT_USER ROLE --> [COMPLETED]
+    --------------------------------------------------------------------------------------------
+
+    2> (ON AUTHORITY BASES) METHODS ALLOWED TO CLIENT_ADMIN  --> [COMPLETED]
+           -> PUT UPDATE -> specific client user created by client admin in a company [COMPLETED]
+           -> DELETE -> specific client user created by client admin in a company [COMPLETED]
+           -> (FETCH/GET) -> single client user created by client admin in a company [COMPLETED]
+           -> fetch all client users created by client admin in a company (fetch all) [COMPLETED]
+
+    ---------------------------------------------------------------------------------------------
+
+    3> CLIENT ADMIN CAN UPLOAD PROFILE PICTURE FOR
+        --> SELF PROFILE PICTURE UPLOAD --> [COMPLETED]
+        --> ALL USERS --> [COMPLETED]
+        --> CLIENT_LOGO  [ CLIENT_ADMIN + CLIENT_USER ]--> [COMPLETED]
+    ---------------------------------------------------------------------------------------------
+
+    4> CLIENT_ADMIN CAN FETCH, UPDATE, DELETE CLIENT_COMPANY INFO --> [COMPLETED]
+    ---------------------------------------------------------------------------------------------
+
+    5> CLIENT_ADMIN CAN CHANGES STATUS FOR ALL TYPES USERS [ active|inactive|deleted ] --> [COMPLETED]
+
+    6> CLIENT_ADMIN CAN SET / RESET PASSWORD FOR ALL USERS CREATED BY THEM
+
+    7> CLIENT_USER CAN CHANGE THEIR OWN PASSWORD
+    ---------------------------------------------------------------------------------------------
+
+
+# SUPER User
+  Field	    Value
+  Username	superadmin01
+  Password	Super@123
+  Role	    SUPER_ADMIN
+  Status	active
+
+------------------------------------------------------------------------------------------
+
+# CLIENT_ADMIN User
+    Field	    Value
+    Username	admin001
+    Password	Admin@123
+    Role	    CLIENT_ADMIN
+    Status	    active
+
